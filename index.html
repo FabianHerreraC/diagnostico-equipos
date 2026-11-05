@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Espacio de diagnóstico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="espacio.css?v=4">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div id="scene" class="scene"></div>
+  </div>
+
+  <header class="hud-top">
+    <div class="crumbs">
+      <button class="crumb home" id="home" aria-label="Volver al espacio">Espacio</button>
+      <span class="crumb-sep" id="crumb-sep">/</span>
+      <span class="crumb cur" id="crumb-cur"></span>
+    </div>
+    <div class="caption" id="caption"></div>
+    <a class="full" href="detalle.html">Análisis completo →</a>
+  </header>
+
+  <footer class="hud-bottom">
+    <nav class="tools-nav" id="tools-nav" aria-label="Herramientas"></nav>
+    <div class="chips" id="chips" aria-label="Seguir batalla"></div>
+  </footer>
+
+  <aside class="card" id="card" aria-live="polite" aria-hidden="true">
+    <i class="screw s1"></i><i class="screw s2"></i><i class="screw s3"></i><i class="screw s4"></i>
+    <div class="card-body" id="card-body"></div>
+  </aside>
+
+  <div class="tip" id="tip" role="tooltip"></div>
+
+  <script src="data.js?v=4"></script>
+  <script src="espacio.js?v=4"></script>
+</body>
+</html>

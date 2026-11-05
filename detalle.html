@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Análisis completo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="brand">
+        <p class="eyebrow"><a class="back" href="index.html">← Volver al espacio</a></p>
+        <h1 id="team-name">—</h1>
+        <p class="meta" id="team-meta">—</p>
+      </div>
+      <p class="lede">Cinco herramientas, un solo hilo: lo que el equipo <em>ve</em> (SWOT), lo que <em>elige</em> (oportunidades y batallas), lo que <em>hará</em> (plan integrado) y lo que <em>necesita</em> para lograrlo (capacidad). Haz clic en cualquier elemento para seguir su hilo de punta a punta.</p>
+    </div>
+  </header>
+
+  <nav class="bar" aria-label="Herramientas y batallas">
+    <div class="wrap bar-inner">
+      <ol class="steps" id="steps"></ol>
+      <div class="filters">
+        <span class="filters-label">Seguir batalla</span>
+        <div class="chips" id="battle-chips"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="s-swot" class="stage">
+      <header class="stage-head">
+        <span class="num">01</span>
+        <div>
+          <h2>SWOT</h2>
+          <p>Fotografía interna (fortalezas, debilidades) y externa (oportunidades, amenazas). Elige una batalla arriba para ver qué elementos usa; el resto se atenúa.</p>
+        </div>
+      </header>
+      <div class="swot" id="swot"></div>
+    </section>
+
+    <section id="s-opp" class="stage">
+      <header class="stage-head">
+        <span class="num">02</span>
+        <div>
+          <h2>Análisis de oportunidades</h2>
+          <p>Las oportunidades del SWOT, priorizadas por impacto, factibilidad y alineación estratégica. Ajusta los pesos o los puntajes y el ranking se recalcula.</p>
+        </div>
+      </header>
+      <div class="opp-grid">
+        <figure class="card chart-card">
+          <figcaption>Impacto × factibilidad <span class="hint">· tamaño = alineación</span></figcaption>
+          <div id="opp-chart"></div>
+        </figure>
+        <div class="card">
+          <div class="weights" id="weights"></div>
+          <div id="opp-table"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="s-mwb" class="stage">
+      <header class="stage-head">
+        <span class="num">03</span>
+        <div>
+          <h2>Must Win Battles</h2>
+          <p>De la lista priorizada salen pocas batallas decisivas para los próximos 18 meses. Cada una dice qué oportunidad persigue, en qué fortaleza se apoya, qué debilidad corrige y qué amenaza mitiga.</p>
+        </div>
+      </header>
+      <div class="mwb" id="mwb"></div>
+    </section>
+
+    <section id="s-plan" class="stage">
+      <header class="stage-head">
+        <span class="num">04</span>
+        <div>
+          <h2>Integrated Action Plan</h2>
+          <p>Cada batalla se traduce en acciones con responsable, plazo, recursos e indicador. Las líneas muestran dependencias; las que cruzan entre batallas o áreas son las que más se rompen.</p>
+        </div>
+      </header>
+      <div class="card gantt-card">
+        <div class="gantt-scroll"><div id="gantt"></div></div>
+      </div>
+      <div class="plan-sub">
+        <div class="card">
+          <h3>Áreas × batallas</h3>
+          <p class="small">Acciones por área en cada batalla. Las áreas presentes en varias batallas son nodos de coordinación.</p>
+          <div id="matrix"></div>
+        </div>
+        <div class="card">
+          <h3>Dependencias que cruzan</h3>
+          <p class="small">Una acción que espera a otra de otra batalla o de otra área.</p>
+          <div id="cross"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="s-cap" class="stage">
+      <header class="stage-head">
+        <span class="num">05</span>
+        <div>
+          <h2>Capacity Action Plan</h2>
+          <p>El plan contra las capacidades reales: personas, competencias, tiempo, presupuesto y herramientas. Activa decisiones de <b>desarrollar</b>, <b>contratar</b> o <b>dejar de hacer</b> y mira cómo se cierran (o no) las brechas.</p>
+        </div>
+      </header>
+
+      <div class="tiles" id="tiles"></div>
+
+      <div class="cap-grid">
+        <div class="card span2">
+          <div class="card-head">
+            <h3>Personas · carga mensual del plan vs. capacidad</h3>
+            <div class="seg" id="area-seg"></div>
+          </div>
+          <div id="load-chart"></div>
+          <div id="area-table"></div>
+        </div>
+
+        <div class="card">
+          <h3>Competencias</h3>
+          <p class="small">Nivel actual → requerido (0–5). El anillo muestra adónde llega con las decisiones activas.</p>
+          <div id="skills"></div>
+        </div>
+
+        <div class="card">
+          <h3>Tiempo · carga de responsables</h3>
+          <p class="small">Cuántas acciones lidera cada responsable a la vez, mes a mes. Dos es el límite; tres o más (en rojo) es atención partida.</p>
+          <div class="heat-scroll"><div id="owners"></div></div>
+        </div>
+
+        <div class="card">
+          <h3>Presupuesto</h3>
+          <div id="budget"></div>
+        </div>
+
+        <div class="card">
+          <h3>Herramientas</h3>
+          <div id="tools"></div>
+        </div>
+
+        <div class="card span2">
+          <div class="card-head">
+            <h3>Decisiones de capacidad</h3>
+            <div class="decision-actions">
+              <button class="btn" id="dec-all">Activar todas</button>
+              <button class="btn ghost" id="dec-none">Ninguna</button>
+            </div>
+          </div>
+          <div class="decisions" id="decisions"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Datos ficticios para estructurar la herramienta. Reemplaza <code>data.js</code> con los del equipo real.</p>
+    </footer>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-live="polite" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Cerrar">×</button>
+    <div id="drawer-body"></div>
+  </aside>
+  <div class="tip" id="tip" role="tooltip"></div>
+
+  <script src="data.js?v=5"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>
